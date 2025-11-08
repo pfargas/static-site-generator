@@ -15,9 +15,9 @@ def generate_page(from_path, template_path, dest_path, basepath):
 
     html_title = extract_title(markdown)
 
-    final_html = template.replace(r"{{ Content }}", html_file).replace(r"{{ Title }}", html_title)
-    final_html = final_html.replace('href="./', f'href="{basepath}')
-    final_html = final_html.replace('src="./', f'src="{basepath}')
+    final_html = template.replace("{{ Content }}", html_file).replace("{{ Title }}", html_title)
+    final_html = final_html.replace('href="/', f'href="{basepath}')
+    final_html = final_html.replace('src="/', f'src="{basepath}')
 
     with open(dest_path, 'w') as f:
         f.write(final_html)

@@ -27,12 +27,12 @@ def copy_full_directory(src, dest):
 
 
 def main():
-    basepath = sys.argv[1] if len(sys.argv) > 1 else "./"
+    basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
     print(f"Using basepath: {basepath}")
-    if os.path.exists(f"{basepath}docs"):
-        remove_files_in_directory(f"{basepath}docs")
+    if os.path.exists(f"./docs"):
+        remove_files_in_directory(f"./docs")
 
-    copy_full_directory(f"{basepath}static", f"{basepath}docs")
+    copy_full_directory(f"./static", f"./docs")
 
     print("Current working directory:", os.getcwd())
 
