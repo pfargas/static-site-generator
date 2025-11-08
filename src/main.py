@@ -27,17 +27,18 @@ def copy_full_directory(src, dest):
 
 
 def main():
-    basepath = sys.argv[1] if len(sys.argv) > 1 else "."
-    if os.path.exists(f"{basepath}/public"):
-        remove_files_in_directory(f"{basepath}/public")
+    basepath = sys.argv[1] if len(sys.argv) > 1 else "./"
+    print(f"Using basepath: {basepath}")
+    if os.path.exists(f"{basepath}docs"):
+        remove_files_in_directory(f"{basepath}docs")
 
-    copy_full_directory(f"{basepath}/static", f"{basepath}/public")
+    copy_full_directory(f"{basepath}static", f"{basepath}docs")
 
     print("Current working directory:", os.getcwd())
 
     generate_pages_recursive("content/",
                   "./src/template.html",
-                  "./public/", basepath)
+                  "./docs/", basepath)
 
 
 
